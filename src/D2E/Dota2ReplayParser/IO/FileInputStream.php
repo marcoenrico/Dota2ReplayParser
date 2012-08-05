@@ -37,6 +37,9 @@ class FileInputStream implements InputStream
 
   public function read($read = 1)
   {
+    if ($read < 1) {
+      return false;
+    }
     $this->read += $read;
 
     return fread($this->resource, $read);
